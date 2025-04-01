@@ -2,15 +2,16 @@
 name = "ollama-tui"
 version = "0.1.0"
 edition = "2021"
-authors = ["Your Name <your.email@example.com>"]
-description = "A TUI interface for Ollama"
 
 [dependencies]
-tui = "0.19"
-crossterm = "0.25"
-chrono = "0.4"
-unicode-width = "0.1.10"
-
-[[bin]]
-name = "ollama-tui"
-path = "src/main.rs"
+ratatui = { version = "0.27.0", features = ["crossterm"] } # Check for latest ratatui version
+# crossterm = "0.27.0"
+tokio = { version = "1", features = ["full"] } # Async runtime
+reqwest = { version = "0.12", features = ["json", "stream", "rustls-tls"], default-features = false } # HTTP client, specify TLS backend
+serde = { version = "1.0", features = ["derive"] } # Serialization/Deserialization
+serde_json = "1.0" # JSON handling
+thiserror = "1.0" # Error handling utility
+futures = "0.3" # For StreamExt
+bytes = "1" # Often needed with byte streams
+pulldown-cmark = "0.9" # Or a newer compatible version
+crossterm = { version = "0.27", features = ["event-stream"] }
