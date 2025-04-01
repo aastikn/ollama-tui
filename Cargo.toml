@@ -1,0 +1,16 @@
+[package]
+name = "ollama-tui"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A TUI interface for Ollama"
+
+[dependencies]
+tui = "0.19"
+crossterm = "0.25"
+chrono = "0.4"
+unicode-width = "0.1.10"
+
+[[bin]]
+name = "ollama-tui"
+path = "src/main.rs"
